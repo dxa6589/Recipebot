@@ -36,3 +36,13 @@ a:hover {
     color: lightblue;
     text-decoration: underline; 
 }
+figure {
+    float: right; 
+    clear: right; 
+    margin-right: 0%;
+}
+figcaption {
+    text-align: center;
+    font-size: 0.75em;
+    font-style: italic;
+}
