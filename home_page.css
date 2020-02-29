@@ -4,13 +4,13 @@ body {
     margin-right: 10%;
     padding-left: 1em;
     padding-right: 1em;
-    background-color: rgb(126, 251, 255);
-    color: indigo;
+    background-color: black;
+    color: white;
 }
 h1{
     font-weight: bold;
     font-size: 2em;
-    color: black;
+    color: lightblue;
     text-align: center;
 }
 h2{
@@ -19,30 +19,20 @@ h2{
     font-size: 1.5em;
     text-decoration: wavy;
 }
-#links {color: rgb(174, 0, 255); }
+#links {color: lightpink;}
 a:link {
-    color: rgb(174, 0, 255);
+    color: lightpink;
     text-decoration: none; 
 }
 a:active {
-    color: rgb(233, 5, 5);
+    color: cornsilk;
     text-decoration: none; 
 }
 a:visited {
-    color: rgb(27, 109, 71);
+    color: lightgreen;
     text-decoration: none; 
 }
 a:hover {
-    color: rgb(5, 58, 233);
+    color: lightblue;
     text-decoration: underline; 
-}
-figure {
-    float: right; 
-    clear: right; 
-    margin-right: 0%;
-}
-figcaption {
-    text-align: center;
-    font-size: 0.75em;
-    font-style: italic;
 }
