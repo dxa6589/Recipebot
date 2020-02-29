@@ -1,0 +1,48 @@
+body { 
+    font-family: "Trebuchet MS", Tahoma, Verdana;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: rgb(126, 251, 255);
+    color: indigo;
+}
+h1{
+    font-weight: bold;
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+h2{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5em;
+    text-decoration: wavy;
+}
+#links {color: rgb(174, 0, 255); }
+a:link {
+    color: rgb(174, 0, 255);
+    text-decoration: none; 
+}
+a:active {
+    color: rgb(233, 5, 5);
+    text-decoration: none; 
+}
+a:visited {
+    color: rgb(27, 109, 71);
+    text-decoration: none; 
+}
+a:hover {
+    color: rgb(5, 58, 233);
+    text-decoration: underline; 
+}
+figure {
+    float: right; 
+    clear: right; 
+    margin-right: 0%;
+}
+figcaption {
+    text-align: center;
+    font-size: 0.75em;
+    font-style: italic;
+}
