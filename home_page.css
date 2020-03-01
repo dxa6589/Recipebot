@@ -37,12 +37,33 @@ a:hover {
     text-decoration: underline; 
 }
 figure {
-    float: right; 
-    clear: right; 
+    /*float: right; 
+    clear: right; */
     margin-right: 0%;
 }
 figcaption {
     text-align: center;
     font-size: 0.75em;
     font-style: italic;
+}
+
+#input {
+    position: fixed;
+    bottom: 30px;
+    width: 600px;
+}
+
+#uinput {
+    height: 30px;
+    width: 70%;
+}
+
+#submit {
+    background-color: #1c92d2;
+    color: white;
+    border: solid white;
+    font-family: Verdana, sans-serif;
+    border-radius: 0px;
+    padding: 10px 30px;
+    margin: 20px 0 0 0;
 }
