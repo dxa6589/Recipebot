@@ -4,20 +4,39 @@
 		<meta charset="utf-8" />
 		<title>RecipeBot</title>
 		<link rel="stylesheet" type="text/css" href="home_page.css">
+
 	</head>
 	<body>
 		<h1>RecipeBot.tech</h1>
+		<div id="containter">
 
-		<figure>
-			<img src="chefbot.jpg" alt="A picture of the chefbot" width=200 height=209>
-			<figcaption>An image of chefbot</figcaption>
-		</figure>
+			<!--figure class=bot>
+				<img src="chefbot.jpg" alt="A picture of the chefbot" width=200 height=209>
+				<figcaption>An image of chefbot</figcaption>
+			</figure-->
+			
+			<p>This is some place holdertext for the recipebot website!</p>
+			
+			<div id=chatlog>
+				<p class="chatlog_bot" id="p9"></p>
+				<p class="chatlog_user" id="p8"></p>
+				<p class="chatlog_bot" id="p7"></p>
+				<p class="chatlog_user" id="p6"></p>
+				<p class="chatlog_bot" id="p5"></p>
+				<p class="chatlog_user" id="p4"></p>
+				<p class="chatlog_bot" id="p3"></p>
+				<p class="chatlog_user" id="p2"></p>
+				<p class="chatlog_bot" id="p1"></p>
+			</div>
 
-		<p>This is some place holdertext for the recipebot website!</p>
-
-		<form id="input" action="./chefbot.jpg">
-			<input type="text" id="uinput" placeholder="Enter your message here"/>
-			<input type="submit" id="submit" value="Enter">
-		</form>
+			<div id="input">
+				<form id="textbox">
+					<input type="text" id="uinput" autocomplete="off" placeholder="ENTER YOUR MESSAGE HERE"/>
+					<input type="submit" id="submit" value="ENTER" onclick="showInput(); /*showResponse();*/ return false;">
+				</form>
+			</div>
+		</div>
+		
+		<script src="main.js"></script>
 	</body>
 </html>
