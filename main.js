@@ -1,41 +1,46 @@
-const URL = "http://34.67.246.127:5000/"
+const URL = "http://34.67.246.127:5000"
 
 function showInput() {
     moveUp();
     var message = document.getElementById("uinput").value;
     document.getElementById('p2').innerHTML = "You: " + message;
     document.getElementById("indicator").innerHTML = "ChefDuck typing:";
-    document.textbox.reset();
+    //document.uinput.reset();
 }
 
 function showResponse() {
     showInput();
     var message = document.getElementById("uinput").value;
-    
-    /*console.log(message);
-    fetch(`${URL}/extract/${message}`, {
+    let ingredients = [];
+    //**
+    fetch(`${URL}/chat/${message}`, {
         method: "GET",
         headers: {
             "Content-Type": "text/plain"
         }
     })
     .then(response => {
-        fetch(`${URL}/all/${response.body.text()}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "text/plain"
-            }
-        })
-        .then(data => {
-        let output = data;
-        document.getElementById('p1').innerHTML = "Duck: " + data;
-        document.getElementById("indicator").innerHTML = "";
+        ingredients = response;
+    })
+    
+    var output = "";
+    //ingredients = JSON.parse(temp);
+    //ingredients.push("cheese", "bread", "eggs", "penne");
+    if (ingredients.length >= 2) {
+        output = "The ingredients you need are "
+        for (i = 0; i < ingredients.length-1; i++) {
+            output = output + ingredients[i] + ", ";
+        }
+        output = output + "and " + ingredients[i];
     }
-    )}*/
-    )
-    document.getElementById('p1').innerHTML = "Duck: " + message;
-    document.getElementById("indicator").innerHTML = "";
+    else if (ingredients.length == 1) {
+        output = "The only ingredient you need is " + ingredients[0];
+    } else {
+        output = ingredients + "\nLooks like we don't have any ingredients for you. Want something else?";
+    }
 
+    document.getElementById('p1').innerHTML = "Duck: " + output;
+    document.getElementById("indicator").innerHTML = "";
 }
 
 function moveUp() {

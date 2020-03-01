@@ -186,6 +186,7 @@ def chatBot(inp):
     for i in pairs:
         pair.append(i)
 
+    """
     results=getAllRecipies(inp)
     i = r"{}".format(inp)
     j = r"{}".format(results)
@@ -193,7 +194,8 @@ def chatBot(inp):
     pa.append(i)
     pa.append([j])
     pair.append(pa)
-
+    """
+    
     i=[
         r"(.*)",
         ["I'm sorry, could you please elaborate or ask for another recipe"]
