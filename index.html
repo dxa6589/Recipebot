@@ -8,32 +8,31 @@
 	</head>
 
 	<body>
-		<h1>RecipeBot.tech</h1>
+		<figure class=chef style="float: left">
+			<img src="chefduck.jpg" alt="Chefduck" width="60" height="60">
+			<figcaption>Chefduck</figcaption>
+		</figure>
+
+		<h1>RecipeBot</h1>
+
 		<div id="containter">
 
-			<!--figure class=bot>
-				<img src="chefbot.jpg" alt="A picture of the chefbot" width=200 height=209>
-				<figcaption>An image of chefbot</figcaption>
-			</figure-->
-			
-			<p>This is some place holdertext for the recipebot website!</p>
-			
 			<div id=chatlog>
-				<p class="chatlog_bot" id="p9"></p>
-				<p class="chatlog_user" id="p8"></p>
-				<p class="chatlog_bot" id="p7"></p>
-				<p class="chatlog_user" id="p6"></p>
-				<p class="chatlog_bot" id="p5"></p>
-				<p class="chatlog_user" id="p4"></p>
-				<p class="chatlog_bot" id="p3"></p>
-				<p class="chatlog_user" id="p2"></p>
-				<p class="chatlog_bot" id="p1"></p>
+				<p class="outgoing" id="p8"></p>
+				<p class="incoming" id="p7"></p>
+				<p class="outgoing" id="p6"></p>
+				<p class="incoming" id="p5"></p>
+				<p class="outgoing" id="p4"></p>
+				<p class="incoming" id="p3"></p>
+				<p class="outgoing" id="p2"></p>
+				<p class="incoming" id="p1"></p>
 			</div>
 
+			<p id="indicator"></p>
 			<div id="input">
-				<form id="textbox">
-					<input type="text" style="border-radius: 10px; font-family: WhitneySSm,sans-serif; padding-right: 53px; padding: 0 65px 0 20px; position: relative; display: inline-block; height: 41px; border: 1px solid #ccc; border-radius: 100px; box-shadow: inset 0 2px 2px 0 rgba(0,0,0,.1), 0 0 0 0 rgba(0,0,0,.6); z-index: 1; -webkit-transition: box-shadow .1s linear,border-color .1s linear; transition: box-shadow .1s linear,border-color .1s linear;" id="uinput" autocomplete="off" placeholder="ENTER YOUR MESSAGE HERE"/>
-					<input type="submit" style="left: 220px; z-index: 5; width: 57px; height: 41px; margin-right: -15px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; background: #ce3f24; font-family: WhitneySSm,sans-serif; -webkit-appearance: button; border-bottom-right-radius: 20px!important; border-top-right-radius: 20px!important; outline: 0; submit; box-sizing: border-box; position: absolute; border: none;" id="submit" value="ENTER" onclick="showInput(); /*showResponse();*/ return false;">
+				<form id="textbox" name="textbox">
+					<input type="text" id="uinput" autocomplete="off" placeholder="ENTER YOUR MESSAGE HERE"/>
+					<input type="submit" id="submit" value="ENTER" onclick="showResponse(); return false;">
 				</form>
 			</div>
 		</div>

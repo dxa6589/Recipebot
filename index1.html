@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Get your recipe</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" crossorigin="anonymous">
+  </head>
+  <body>
+  	<div class="container">
+  		<div class="row">
+		  	<div id="robot" class="col-sm-8">
+		  		<img src="img/cook.png"/>
+		  	</div>
+
+		  	<div id="chat" class="col-sm-4">
+          <select id="recipes" onchange="getRecipeIngredients(this.value)">
+          </select>
+		  	</div>
+		</div>
+	</div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+
+  <script>
+    let text = "I want to make an apple pie";
+    let recipes = [];
+    let name = "apple pie";
+    localStorage.setItem("total", 0);
+
+    $.get({
+      url: "http://34.67.246.127:5000/all/" + text,
+      crossDomain: true,
+      headers: {"Access-Control-Allow-Origin": "*"},
+      success: function(response) {
+        recipes = JSON.parse(response);
+
+        recipes.forEach(function(recipe) {
+          $("#recipes").append(`<option value='${recipe[0]}'>${recipe[0]}</option>`);
+        });
+      }
+    })
+
+    function getRecipeIngredients(name) {
+      let ingredients = [];
+      localStorage.setItem("total", 0);
+
+      recipes.forEach(function(recipe) {
+        if(name == recipe[0]) {
+          ingredients = recipe[1].replace("[", "").replace("]", "").split(",");
+          
+          ingredients.forEach(function(ing) {
+            ing = ing.trim().replace(/'/g, "");
+            getSku(ing);
+          });
+        }
+      });
+
+      console.log(localStorage.getItem("total"));
+    }
+
+    function getSku(ing) {
+      $.get({
+        url: `https://api.wegmans.io/products/search?query=${ing}&api-version=2018-10-18&subscription-key=55031caddc374e1d88ba2b369e8be8da`,
+        success: function(response) {
+          let sku = response.results[0]["sku"];
+          getPrice(sku);
+        }
+      })
+    }
+
+    function getPrice(sku) {
+      $.get({
+        url: `https://api.wegmans.io/products/${sku}/prices?api-version=2018-10-18&subscription-key=c455d00cb0f64e238a5282d75921f27e`,
+        success: function(response) {
+          let stores = response.stores;
+          localStorage.setItem("total", parseInt(localStorage.getItem("total")) + stores[0].price);
+        }
+      })
+    }
+
+    function getStore(id) {
+      $.get({
+        url: `https://api.wegmans.io/stores/${id}?api-version=2018-10-18&subscription-key=55031caddc374e1d88ba2b369e8be8da`,
+        success: function(response) {
+          return "At " + response.name + ", " + response.address.street + " " + response.address.city + " " + response.address.state.abbreviation;
+        }
+      })
+    }
+
+  </script>
+
+</html>
