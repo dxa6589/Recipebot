@@ -20,7 +20,7 @@ function showResponse() {
         }
     })
     .then(response => {
-        ingredients = response;
+        let ingredients = response;
     })
     
     var output = "";
